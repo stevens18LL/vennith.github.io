@@ -1,0 +1,65 @@
+/* Mengatur gaya umum untuk seluruh halaman */
+body {
+    background-color: #0090FF; /* Warna latar belakang yang lebih lembut */
+    font-family: 'bold', sans-serif; /* Font yang lebih modern dan mudah dibaca */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Mengatur gaya untuk header */
+h1 {
+    color: #2c3e50; /* Warna teks yang lebih gelap untuk kontras */
+    margin: 20px;
+    text-align: center;
+}
+
+/* Mengatur gaya untuk paragraf */
+p {
+    color: #34495e; /* Warna teks yang lebih lembut */
+    margin: 20px;
+    padding: 10px;
+    background-color: #ecf0f1; /* Latar belakang yang sedikit berbeda untuk paragraf */
+    border-radius: 5px; /* Sudut yang melengkung */
+}
+
+/* Mengatur gaya untuk link */
+a {
+    color: #2980b9; /* Warna link yang mencolok */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3498db; /* Warna link saat di-hover */
+    text-decoration: underline;
+}
+
+/* Mengatur gaya untuk footer */
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Mengatur gaya untuk tombol */
+button {
+    background-color: #2980b9;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #3498db;
+}

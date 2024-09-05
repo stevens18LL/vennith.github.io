@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        #chat-container {
+            width: 400px;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .message {
+            margin-bottom: 10px;
+        }
+        .user-message {
+            text-align: right;
+        }
+        .bot-message {
+            text-align: left;
+        }
+        .message-content {
+            display: inline-block;
+            padding: 10px;
+            border-radius: 10px;
+            background: #e0e0e0;
+        }
+        .input-group {
+            display: flex;
+            margin-top: 20px;
+        }
+        .input-group input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .input-group button {
+            padding: 10px;
+            border: none;
+            background: #333;
+            color: #fff;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div class="message bot-message">
+            <div class="message-content">Halo! Bagaimana saya bisa membantu Anda hari ini?</div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="user-input" placeholder="Ketik pesan Anda di sini...">
+            <button id="send-btn">Kirim</button>
+        </div>
+    </div>
+
+    <script>
+        async function getBotResponse(userInput) {
+            const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer sk--z5Apdxxy4lU7v5Wpfhbl7lOJad5cGb7diIVR6R2WaT3BlbkFJwKGGqhmgpidCrbVp-69adu1J_UilRr707fKU5_rMIA'
+                },
+                body: JSON.stringify({
+                    prompt: userInput,
+                    max_tokens: 150
+                })
+            });
+            const data = await response.json();
+            return data.choices[0].text.trim();
+        }
+
+        document.getElementById('send-btn').addEventListener('click', async function() {
+            var userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                var userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.innerHTML = '<div class="message-content">' + userInput + '</div>';
+                document.getElementById('chat-container').appendChild(userMessage);
+                document.getElementById('user-input').value = '';
+
+                var botResponse = await getBotResponse(userInput);
+                var botMessage = document.createElement('div');
+                botMessage.className = 'message bot-message';
+                botMessage.innerHTML = '<div class="message-content">' + botResponse + '</div>';
+                document.getElementById('chat-container').appendChild(botMessage);
+            }
+        });
+    </script>
+</body>
+</html>

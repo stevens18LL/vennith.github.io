@@ -1,0 +1,35 @@
+/* Mengatur gaya umum untuk seluruh halaman */
+body {
+    background-color: #f0f8ff; /* Warna latar belakang yang lebih lembut */
+    font-family: 'Arial', sans-serif; /* Font yang lebih modern dan mudah dibaca */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Mengatur gaya untuk header */
+h1 {
+    color: #2c3e50; /* Warna teks yang lebih gelap untuk kontras */
+    margin: 20px;
+    text-align: center;
+}
+
+/* Mengatur gaya untuk paragraf */
+p {
+    color: #34495e; /* Warna teks yang lebih lembut */
+    margin: 20px;
+    padding: 10px;
+    background-color: #ecf0f1; /* Latar belakang yang sedikit berbeda untuk paragraf */
+    border-radius: 5px; /* Sudut yang melengkung */
+}
+
+/* Mengatur gaya untuk link */
+a {
+    color: #2980b9; /* Warna link yang mencolok */
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3498db; /* Warna link saat di-hover */
+    text-decoration: underline;
+}
